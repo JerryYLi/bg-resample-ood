@@ -28,7 +28,7 @@ class TinyImages(torch.utils.data.Dataset):
 
         if exclude_cifar:
             self.cifar_idxs = []
-            with open('/data4/yili/github/OOD/outlier-exposure/utils/80mn_cifar_idxs.txt', 'r') as idxs:
+            with open('80mn_cifar_idxs.txt', 'r') as idxs:
                 for idx in idxs:
                     # indices in file take the 80mn database to start at 1, hence "- 1"
                     self.cifar_idxs.append(int(idx) - 1)

@@ -1,8 +1,7 @@
 import os
 import torch
 from torchvision import datasets
-# root_dir = '/path/to/root/'
-root_dir = '/data4/yili/github/data/'
+root_dir = '/path/to/root/'
 
 class IndexedDataset(torch.utils.data.Dataset):
     def __init__(self, dataset):
@@ -16,16 +15,16 @@ class IndexedDataset(torch.utils.data.Dataset):
 
 
 def cifar10(train, transform):
-    dataset = datasets.CIFAR10(root_dir, train=train, transform=transform)
+    dataset = datasets.CIFAR10(root_dir, train=train, transform=transform, download=True)
     return dataset, 10
 
 def cifar100(train, transform):
-    dataset = datasets.CIFAR100(root_dir, train=train, transform=transform)
+    dataset = datasets.CIFAR100(root_dir, train=train, transform=transform, download=True)
     return dataset, 100
 
 def svhn(train, transform):
     split = 'train' if train else 'test'
-    dataset = datasets.SVHN(root_dir, split=split, transform=transform)
+    dataset = datasets.SVHN(root_dir, split=split, transform=transform, download=True)
     return dataset, 10
 
 def lsun(train, transform):
@@ -34,7 +33,8 @@ def lsun(train, transform):
     return dataset, None
 
 def places(train, transform):
-    dataset = datasets.ImageFolder('/path/to/places/', transform=transform)
+    # dataset = datasets.ImageFolder('/path/to/places/', transform=transform)
+    dataset = datasets.ImageFolder('/data7/yili/imgDB/places/', transform=transform)
     return dataset, len(dataset.classes)
 
 def textures(train, transform):

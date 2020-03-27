@@ -166,7 +166,7 @@ for epoch in range(1, args.epochs + 1):
     if epoch % args.test_freq == 0:
         loss, acc = eval_epoch_dual(epoch, val_in_loader, val_out_loader, model, weighted_entropy_loss, args)
     if epoch % args.save_freq == 0:
-        save_name = args.in_dataset + '_' + args.out_dataset + '_' + args.arch + '_resample_' + args.mode
+        save_name = args.in_dataset + '_' + args.out_dataset + '_' + args.arch + '_resample'
         save_path = os.path.join('checkpoints/', save_name + '_{}ep-{:04d}top{}.pth'.format(epoch, round(acc[0] * 10000), args.topk[0]))
         torch.save(model.module.state_dict(), save_path)
         w_path = os.path.join('checkpoints/', save_name + '_{}ep-weights.pth'.format(epoch))
