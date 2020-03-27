@@ -33,8 +33,7 @@ def lsun(train, transform):
     return dataset, None
 
 def places(train, transform):
-    # dataset = datasets.ImageFolder('/path/to/places/', transform=transform)
-    dataset = datasets.ImageFolder('/data7/yili/imgDB/places/', transform=transform)
+    dataset = datasets.ImageFolder('/path/to/places/', transform=transform)
     return dataset, len(dataset.classes)
 
 def textures(train, transform):
